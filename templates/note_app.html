@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+    <link rel="stylesheet" href="/static/style/style.css">
+    <title>Notes App</title>
+    <!-- <meta http-equiv="refresh" content="1"> -->
+
+</head>
+<body>
+
+    <div class="big-box" style="background-color: {{big_box_bc}};color: {{big_box_c}}">
+        <div class="text-place">
+            
+                <!-- <li style="margin: auto;">{{notes[0]}}</li> -->
+                {% for note in notes %}
+                {% if note[:-1]==""%}
+                  <!-- <p>note</p>  -->
+                 {% else %}
+                 <div style="margin-left: auto; background-color: {{bc}} ;color:{{c}};text-align:justify;">
+                    <span><p>{{ note[:-1]}}</p></span>
+                    <span><a href="/{{nam}}/delete/{{ note[-1]}}"><img src="/static/img/delete.png" alt=""></a></span>
+                </div>
+
+                    <!-- {% if note[-1]|int % 2 == 0 %}
+                    <div class><li style="margin-left: auto; background-color: #D1E7DD;">{{ note[:-1]}}&nbsp;&nbsp;&nbsp;<a href="/{{nam}}/delete/{{ note[-1]}}"><img src="/static/img/delete.png" alt=""></a></a></li></div>
+                    {%else%}
+                    <div><li style="background-color: rgb(235, 235, 183); text-align: right;">{{ note[:-1] }}&nbsp;&nbsp;&nbsp;<a href="/{{nam}}/delete/{{ note[-1]}}"><img src="/static/img/delete.png" alt=""></a></li></div>
+                    {%endif%} -->
+                {% endif %}
+                {% endfor %}
+            
+        </div>
+        <form action="/{{nam}}/add" method="POST" style="display: flex;" class="type-part">
+            <input name="note" id="" required>
+            <!-- <textarea type="text" name="note" required> -->
+            <button type="submit"> add</button>
+        </form>
+        <div class="des">
+            <h5 style="text-align: center;">Add your note here 😊</h5>
+        </div>
+    </div>
+    
+</body>
+</html>

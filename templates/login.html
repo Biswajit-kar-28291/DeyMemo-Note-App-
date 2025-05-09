@@ -1,0 +1,19 @@
+{% extends "reg.html"%}
+{% block content%}
+    <form method="POST" action="{{url_for('login')}}">
+        <h5 style="text-align: center;">Welsome Back !!</h5>
+        <input type="text" name="username" required placeholder="username" >
+        <input type="password" name="pass" required placeholder="password">
+        <div style="border: 1px solid ;margin: 10px 0px 0px 10px; width: 100%;"></div>
+                    <button type="submit"> Click to login</button>
+                    
+        {% if msg %}
+                    <div class="row flask"><p>{{msg}}</p></div>
+                    {% endif %}
+                    <p style="margin:15px; text-align: center;">Don't have any account? <a href="{{url_for('reg')}}"> Register</a></p>
+    </form>
+
+    <!-- <a href="{{url_for('reg')}}">reg</a> -->
+{%endblock%}
+</body>
+</html>
